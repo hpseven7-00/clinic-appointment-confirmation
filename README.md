@@ -4,16 +4,16 @@
 # Sistema de Confirmação Automatizada - Clínica Terapêutica
 
 ## 👥 Equipe Responsável
-* [cite_start]**César Kayoma** [cite: 5]
-* [cite_start]**Hágape Latan** [cite: 5]
-* [cite_start]**Guilherme de Oliveira** [cite: 5]
-* [cite_start]**Curso:** Análise e Desenvolvimento de Sistemas - 3º período [cite: 3, 5]
+* [cite_start] **César Kayoma** [cite: 5]
+* [cite_start] **Hágape Latan** [cite: 5]
+* [cite_start] **Guilherme de Oliveira** [cite: 5]
+* [cite_start] **Curso:** Análise e Desenvolvimento de Sistemas - 3º período [cite: 3, 5]
 * **Data:** 30 de Março de 2026
 
 ---
 
 ## 📝 Proposta do Sistema
-[cite_start]Este projeto visa solucionar o problema de confirmação manual de sessões em uma clínica terapêutica que utiliza o sistema **Amigo Tech**[cite: 12, 15]. [cite_start]Atualmente, o processo é repetitivo, suscetível a erros humanos e consome elevado tempo administrativo[cite: 31, 32, 33].
+[cite_start] Este projeto visa solucionar o problema de confirmação manual de sessões em uma clínica terapêutica que utiliza o sistema **Amigo Tech**[cite: 12, 15]. [cite_start]Atualmente, o processo é repetitivo, suscetível a erros humanos e consome elevado tempo administrativo[cite: 31, 32, 33].
 
 [cite_start]A solução proposta automatiza o envio de mensagens via **WhatsApp**, registra as respostas e organiza a agenda para os profissionais, garantindo maior eficiência operacional[cite: 42, 43].
 
@@ -21,11 +21,11 @@
 
 ## 🛠️ Tecnologias e Configuração do Ambiente
 O projeto foi desenvolvido utilizando as seguintes tecnologias:
-* [cite_start]**Linguagem:** Python (versátil e multiparadigma)[cite: 85].
-* [cite_start]**Framework:** FastAPI (para criação da API REST com suporte a assincronia)[cite: 85].
-* [cite_start]**Banco de Dados:** PostgreSQL (Camada de Persistência)[cite: 85].
-* [cite_start]**Manipulação de Dados:** Pandas (Processamento da agenda importada)[cite: 85].
-* [cite_start]**Interface:** Jinja2 para renderização do frontend[cite: 85].
+* [cite_start] **Linguagem:** Python (versátil e multiparadigma)[cite: 85].
+* [cite_start] **Framework:** FastAPI (para criação da API REST com suporte a assincronia)[cite: 85].
+* [cite_start] **Banco de Dados:** PostgreSQL (Camada de Persistência)[cite: 85].
+* [cite_start] **Manipulação de Dados:** Pandas (Processamento da agenda importada)[cite: 85].
+* [cite_start] **Interface:** Jinja2 para renderização do frontend[cite: 85].
 
 ### Como executar o projeto:
 1. Instale as dependências: `pip install -r requirements.txt`.
@@ -51,9 +51,9 @@ O sistema foi estruturado para demonstrar a convergência de diferentes paradigm
 ## 🚀 Roadmap de Desenvolvimento (MVP)
 * [x] Configuração do ambiente e arquitetura base.
 * [x] Implementação da camada de persistência (Models e Database).
-* [cite_start][ ] Importação automatizada da agenda via Pandas[cite: 47].
-* [cite_start][ ] Integração com API Oficial do WhatsApp[cite: 48, 80].
-* [cite_start][ ] Painéis analíticos de presença e faltas[cite: 110].
+* [cite_start] [ ] Importação automatizada da agenda via Pandas[cite: 47].
+* [cite_start] [ ] Integração com API Oficial do WhatsApp[cite: 48, 80].
+* [cite_start] [ ] Painéis analíticos de presença e faltas[cite: 110].
 
 ---
 
