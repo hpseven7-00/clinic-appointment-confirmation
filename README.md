@@ -51,9 +51,9 @@ O sistema foi estruturado para demonstrar a convergência de diferentes paradigm
 ## 🚀 Roadmap de Desenvolvimento (MVP)
 * [x] Configuração do ambiente e arquitetura base.
 * [x] Implementação da camada de persistência (Models e Database).
-*   [ ] Importação automatizada da agenda via Pandas[cite: 47].
-*   [ ] Integração com API Oficial do WhatsApp[cite: 48, 80].
-*   [ ] Painéis analíticos de presença e faltas[cite: 110].
+* [ ] Importação automatizada da agenda via Pandas[cite: 47].
+* [ ] Integração com API Oficial do WhatsApp[cite: 48, 80].
+* [ ] Painéis analíticos de presença e faltas[cite: 110].
 
 ---
 
