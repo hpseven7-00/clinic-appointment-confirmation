@@ -3,26 +3,17 @@ Colunas da planilha de agendamentos:
 S: vamos usar
 N: não vamos usar
 
-Cód. Atendimento - S
 Índice
-Agendado em - S
-Agendado por - S
-Confirmado em - S
-Confirmado por - S
-Data do Agendamento - S
-Hora do Agendamento - S
+
 Unidade
 Sala
-Profissional - S
 Sol. Interno
 Sol. Externo
-Paciente - S
 Idade
 Como conheceu
 ID Amigo
 Cod. Legado
 CPF
-Telefone - S
 E-mail
 Matrícula
 Tipo de Atendimento
@@ -33,6 +24,17 @@ Status do Agendamento
 Forma de Pagamento
 Tipo de Guia
 Acomodação
+Cód. Atendimento - S - sessao
+Agendado em - S - sessao
+Agendado por - S - sessao
+Confirmado em - S - sessao
+Confirmado por - S - sessao
+Data do Agendamento - S - sessao
+Hora do Agendamento - S - sessao
+Profissional - S - profissional
+Paciente - S - paciente
+Telefone - S - paciente
+
 
 """
 

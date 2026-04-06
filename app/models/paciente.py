@@ -6,5 +6,4 @@ class Paciente(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     nome = Column(String, nullable=False)
-    nome_responsavel = Column(String, nullable=False)
-    telefone_responsavel = Column(String, nullable=False)  # Formato: 5599999999999
+    telefone = Column(String, nullable=False)  # Formato: 5599999999999

@@ -6,13 +6,14 @@ class Sessao(Base):
     __tablename__ = "sessoes"
 
     id = Column(Integer, primary_key=True, index=True)
-    data_horario = Column(DateTime, nullable=False)
+    data_hora_sessao = Column(DateTime, nullable=False)
     # Status: 'Pendente', 'Confirmado', 'Cancelado' ou 'Não Respondido'
-    status = Column(String, default="Pendente") 
+    status = Column(String, default="Pendente")
+    telefone = Column(String, nullable=False)
 
     # Chaves Estrangeiras (Relacionamentos)
-    paciente_id = Column(Integer, ForeignKey("pacientes.id"))
-    profissional_id = Column(Integer, ForeignKey("profissionais.id"))
+    paciente_id = Column(Integer, ForeignKey("pacientes.id"), nullable=False)
+    profissional_id = Column(Integer, ForeignKey("profissionais.id"), nullable=False)
 
     # Atalhos para acessar os objetos ligados
     paciente = relationship("Paciente")
