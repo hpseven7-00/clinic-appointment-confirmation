@@ -1,61 +1,313 @@
+# README — Sistema de Confirmação Automatizada para Clínica Terapêutica
+
+Sistema web desenvolvido em Python para automatizar o processo de confirmação de sessões terapêuticas via WhatsApp, reduzindo tarefas manuais e melhorando a organização operacional da clínica.
+
+O projeto está sendo desenvolvido como atividade acadêmica da disciplina de Paradigmas da Programação, aplicando conceitos de Programação Orientada a Objetos, programação assíncrona, arquitetura em camadas e APIs REST.
 
 ---
 
-# Sistema de Confirmação Automatizada - Clínica Terapêutica
+# Índice
 
-## 👥 Equipe Responsável
-*   **César Kayoma** [cite: 5]
-*   **Hágape Latan** [cite: 5]
-*   **Guilherme de Oliveira** [cite: 5]
-*   **Curso:** Análise e Desenvolvimento de Sistemas - 3º período [cite: 3, 5]
-* **Data:** 30 de Março de 2026
-
----
-
-## 📝 Proposta do Sistema
-  Este projeto visa solucionar o problema de confirmação manual de sessões em uma clínica terapêutica que utiliza o sistema **Amigo Tech**[cite: 12, 15].  Atualmente, o processo é repetitivo, suscetível a erros humanos e consome elevado tempo administrativo[cite: 31, 32, 33].
-
- A solução proposta automatiza o envio de mensagens via **WhatsApp**, registra as respostas e organiza a agenda para os profissionais, garantindo maior eficiência operacional[cite: 42, 43].
+1. [Visão Geral do Projeto](#1-visão-geral-do-projeto)
+2. [Objetivos do Sistema](#2-objetivos-do-sistema)
+3. [Tecnologias Utilizadas](#3-tecnologias-utilizadas)
+4. [Configuração do Ambiente](#4-configuração-do-ambiente)
+5. [Executando o Projeto](#5-executando-o-projeto)
+6. [Arquitetura do Sistema](#6-arquitetura-do-sistema)
+7. [Paradigmas Aplicados](#7-paradigmas-aplicados)
+8. [Fluxo de Funcionamento](#8-fluxo-de-funcionamento)
+9. [Funcionalidades](#9-funcionalidades)
+10. [Equipe Responsável](#10-equipe-responsável)
 
 ---
 
-## 🛠️ Tecnologias e Configuração do Ambiente
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
-*   **Linguagem:** Python (versátil e multiparadigma)[cite: 85].
-*   **Framework:** FastAPI (para criação da API REST com suporte a assincronia)[cite: 85].
-*   **Banco de Dados:** PostgreSQL (Camada de Persistência)[cite: 85].
-*   **Manipulação de Dados:** Pandas (Processamento da agenda importada)[cite: 85].
-*   **Interface:** Jinja2 para renderização do frontend[cite: 85].
+# 1. Visão Geral do Projeto
 
-### Como executar o projeto:
-1. Instale as dependências: `pip install -r requirements.txt`.
-2. Configure o arquivo `.env` com a sua `DATABASE_URL` do PostgreSQL.
-3. Inicie o servidor: `uvicorn app.main:app --reload`.
+O Sistema de Confirmação Automatizada para Clínica Terapêutica foi desenvolvido para automatizar o processo de confirmação de sessões realizadas por clínicas multidisciplinares.
 
----
+Atualmente, muitas clínicas realizam esse processo manualmente:
 
-## 🧠 Seção Técnica: Integração de Paradigmas
-O sistema foi estruturado para demonstrar a convergência de diferentes paradigmas de programação, garantindo modularidade e escalabilidade:
+* consultando agendas;
+* enviando mensagens individualmente;
+* registrando confirmações manualmente;
+* organizando listas para profissionais.
 
-### 1. Programação Orientada a Objetos (POO)
- Aplicada na modelagem das entidades do domínio na pasta `/app/models`[cite: 88].  As classes **Paciente**, **Profissional** e **Sessão** utilizam herança e encapsulamento para representar fielmente as regras de negócio e a estrutura do banco de dados[cite: 89, 90, 92, 93].
-
-### 2. Programação Assíncrona e Orientada a Eventos
- Implementada na camada de serviços (`/app/services/whatsapp_service.py`)[cite: 96, 100].  O uso de `async/await` permite que o sistema processe o envio e recebimento de mensagens via API do WhatsApp em segundo plano, sem bloquear as demais tarefas da gestão[cite: 100].
-
-### 3. Arquitetura REST
- Utilizada na comunicação entre o frontend e o backend através do **FastAPI**[cite: 101].  Isso promove o desacoplamento entre os componentes, facilitando futuras integrações com o sistema Amigo Tech[cite: 102, 109].
+O sistema proposto automatiza esse fluxo utilizando processamento de dados, APIs web e integração com serviços de mensagens.
 
 ---
 
-## 🚀 Roadmap de Desenvolvimento (MVP)
-* [x] Configuração do ambiente e arquitetura base.
-* [x] Implementação da camada de persistência (Models e Database).
-* [ ] Importação automatizada da agenda via Pandas[cite: 47].
-* [ ] Integração com API Oficial do WhatsApp[cite: 48, 80].
-* [ ] Painéis analíticos de presença e faltas[cite: 110].
+# 2. Objetivos do Sistema
+
+## Objetivo principal
+
+Automatizar o envio e gerenciamento de confirmações de sessões terapêuticas.
+
+## Objetivos específicos
+
+* Reduzir o trabalho manual da gestão;
+* Melhorar a organização da clínica;
+* Centralizar informações de confirmação;
+* Automatizar geração de relatórios;
+* Aplicar conceitos de engenharia de software e paradigmas de programação.
 
 ---
+
+# 3. Tecnologias Utilizadas
+
+| Tecnologia     | Finalidade                          |
+| -------------- | ----------------------------------- |
+| **Python**     | Linguagem principal do projeto      |
+| **FastAPI**    | Desenvolvimento da API REST         |
+| **PostgreSQL** | Persistência de dados               |
+| **SQLAlchemy** | ORM para comunicação com banco      |
+| **Pandas**     | Processamento de agendas importadas |
+| **Jinja2**     | Renderização do frontend            |
+| **HTML/CSS**   | Interface web                       |
+| **Git/GitHub** | Controle de versão                  |
+
+---
+
+
+# 4. Configuração do Ambiente
+
+## Pré-requisitos
+
+* Python 3.10+
+* PostgreSQL instalado
+* pip atualizado
+
+Verificando versões:
+
+```bash
+python --version
+pip --version
+```
+
+---
+
+## Criando ambiente virtual
+
+```bash
+python -m venv venv
+```
+
+---
+
+## Ativando ambiente virtual
+
+### Windows (PowerShell)
+
+```powershell
+venv\Scripts\Activate.ps1
+```
+
+### Windows (CMD)
+
+```cmd
+venv\Scripts\activate.bat
+```
+
+### Linux/macOS
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+## Instalando dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 5. Executando o Projeto
+
+## Iniciando servidor
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Servidor disponível em:
+
+```txt
+http://127.0.0.1:8000
+```
+
+---
+
+# 6. Arquitetura do Sistema
+
+O sistema foi estruturado utilizando arquitetura em camadas.
+
+## Camada de Modelos
+
+Responsável pela representação das entidades do domínio:
+
+* pacientes;
+* profissionais;
+* sessões;
+* confirmações.
+
+---
+
+## Camada de Serviços
+
+Responsável pelas regras de negócio:
+
+* processamento de agendas;
+* envio de mensagens;
+* geração de relatórios;
+* manipulação de dados.
+
+---
+
+## Camada de Rotas
+
+Responsável pela comunicação HTTP através da API REST.
+
+---
+
+## Camada de Interface
+
+Responsável pela renderização das páginas web utilizando Jinja2.
+
+---
+
+# 7. Paradigmas Aplicados
+
+## Programação Orientada a Objetos
+
+Aplicada na modelagem das entidades do sistema:
+
+* Paciente
+* Sessão
+* Profissional
+* Confirmação
+
+---
+
+## Programação Assíncrona
+
+Utilizada no FastAPI para:
+
+* processamento concorrente;
+* envio de mensagens;
+* comunicação com APIs externas.
+
+---
+
+## Programação Modular
+
+O sistema foi dividido em módulos independentes:
+
+* models
+* services
+* routes
+* database
+
+Essa abordagem melhora:
+
+* manutenção;
+* reutilização;
+* organização do código.
+
+---
+
+## Arquitetura Cliente-Servidor
+
+A aplicação segue o modelo cliente-servidor:
+
+* frontend acessa endpoints da API;
+* backend processa regras;
+* banco armazena os dados.
+
+---
+
+# 8. Fluxo de Funcionamento
+
+## Fluxo principal do sistema
+
+1. Importação da agenda de atendimentos;
+2. Processamento dos dados utilizando Pandas;
+3. Identificação das sessões do dia seguinte;
+4. Geração automática de mensagens;
+5. Envio das mensagens via WhatsApp;
+6. Registro das respostas;
+7. Organização das confirmações;
+8. Geração de relatórios por profissional.
+
+---
+
+# 9. Funcionalidades
+
+## Gestão de Agendas
+
+* Importação de agendas;
+* Processamento automático;
+* Filtragem de sessões.
+
+---
+
+## Confirmação de Sessões
+
+* Envio automático de mensagens;
+* Registro de respostas;
+* Classificação das confirmações.
+
+---
+
+## Interface Web
+
+* Dashboard administrativo;
+* Visualização de sessões;
+* Acompanhamento das confirmações.
+
+---
+
+# 10. Equipe Responsável
+
+## César Kayoma
+
+### Líder da Equipe e Desenvolvedor Frontend
+
+Responsável pela construção da interface web do sistema utilizando Jinja2, organização visual da aplicação e integração entre frontend e backend.
+
+### Principais atividades
+
+* Desenvolvimento da interface;
+* Estruturação das páginas;
+* Integração frontend-backend;
+* Organização da experiência do usuário.
+* Integração com PostgreSQL;
+
+---
+
+## Hágape Latan
+
+### Desenvolvedor Backend
+
+Responsável pela arquitetura backend do sistema, modelagem de dados e regras de negócio.
+
+### Principais atividades
+
+* Processamento de agendas utilizando Pandas;
+* Implementação das regras de negócio;
+* Estruturação da camada de serviços.
+
+---
+
+# Informações Acadêmicas
+
+| Informação | Detalhes                              |
+| ---------- | ------------------------------------- |
+| Curso      | Análise e Desenvolvimento de Sistemas |
+| Período    | 3º período                            |
+| Disciplina | Paradigmas da Programação             |
+| Ano        | 2026                                  |
 
 
 
