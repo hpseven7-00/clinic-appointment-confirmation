@@ -38,11 +38,45 @@ Telefone - S - paciente
 
 """
 
+import os
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
 
+# Carrega variáveis do .env
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL não definida. Verifique seu .env")
+
+# Cria engine
 engine = create_engine(
-    "postgresql+psycopg2://clinic_user:clinic1234@localhost:5432/clinic"
+    DATABASE_URL,
+    echo=True,          # log das queries (tira em produção)
+    pool_pre_ping=True  # evita conexões mortas
 )
 
-conn = engine.connect()
-print("Conectado!")
+# Cria fábrica de sessões
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+)
+
+# Função pra pegar sessão (padrão)
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+# Teste opcional de conexão
+def test_connection():
+    try:
+        with engine.connect() as conn:
+            print("Banco conectado com sucesso.")
+    except Exception as e:
+        print("Erro ao conectar no banco:", e)
